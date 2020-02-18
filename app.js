@@ -32,7 +32,6 @@ app.get('/health', (req,res)=>{
   res.send({message:ERROR_CODES.HEALTH_CHECK});
 });
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -46,7 +45,6 @@ app.use(function(err, req, res, next) {
 app.listen(app.get('port'), function() {
   console.log("Express server listening on port %d in %s mode",port, env);
 });
-
 
 module.exports = app;
 
