@@ -1,30 +1,39 @@
 const {asyncHandler} = require('../util/helper');
-const ERROR_CODE = require('../util/message_codes');
 const todoService = require('../services/todo.service');
 
-exports.createTodo = asyncHandler(async (req,res) => {
+exports.getTodoById = asyncHandler(async (req,res) => {
 
-    let createTodoRespone = await todoService.createTodo();
-    if(!createTodoRespone){
-        return HELPER.sendResponse(res, 500, ERROR_CODE)
+    let getTodoByIdResponse = await todoService.getTodoById(req.body.id);
+    if(!getTodoByIdResponse){
+        return HELPER.sendResponse(res, 500, ERROR_CODES.CANT_CREATE)
     }
-    return HELPER.sendResponse(res, 201, createTodoResponepokemon)
+    return HELPER.sendResponse(res, 200, getTodoByIdResponse)
 
 });
 
-exports.getTodo = asyncHandler(async (req,res) => {
+exports.getAllTodos = asyncHandler(async (req,res) => {
 
-    let getTodoResponse = await todoService.getTodo();
+    let getTodoResponse = await todoService.getAllTodos();
     if(!getTodoResponse){
-        return HELPER.sendResponse(res, 500, ERROR_CODE)
+        return HELPER.sendResponse(res, 500, ERROR_CODES.CANT_CREATE)
     }
     return HELPER.sendResponse(res, 200, getTodoResponse)
 
 });
 
+exports.createTodo = asyncHandler(async (req,res) => {
+
+    let createTodoRespone = await todoService.createTodo(req.body.note);
+    if(!createTodoRespone){
+        return HELPER.sendResponse(res, 500, ERROR_CODES.CANT_CREATE)
+    }
+    return HELPER.sendResponse(res, 201, createTodoRespone)
+
+});
+
 exports.updateTodo = asyncHandler(async (req,res) => {
 
-    let updateTodoRespone = await todoService.updateTodo();
+    let updateTodoRespone = await todoService.updateTodo(req.body.id,req.body.note);
     if(!updateTodoRespone){
         return HELPER.sendResponse(res, 500, ERROR_CODE)
     }
@@ -34,7 +43,7 @@ exports.updateTodo = asyncHandler(async (req,res) => {
 
 exports.deleteTodo = asyncHandler(async (req,res) => {
 
-    let deleteTodoResponse = await todoService.deleteTodo();
+    let deleteTodoResponse = await todoService.deleteTodo(req.body.id);
     if(!deleteTodoResponse){
         return HELPER.sendResponse(res, 500, ERROR_CODE)
     }

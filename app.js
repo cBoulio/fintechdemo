@@ -16,15 +16,21 @@ const env = process.env.NODE_ENV;
 
 global.HELPER = require('./util/helper');
 global.ERROR_CODES = require('./util/message_codes');
+global.db = require('./config/db_connection');
 
 const todoRoutes = require('./routes/todo.routes');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(version + '/todo', todoRoutes);
+
+// Check if apis are running
+app.get('/health', (req,res)=>{
+  res.send({message:ERROR_CODES.HEALTH_CHECK});
+});
 
 
 // catch 404 and forward to error handler
@@ -39,7 +45,7 @@ app.use(function(err, req, res, next) {
 
 app.listen(app.get('port'), function() {
   console.log("Express server listening on port %d in %s mode",port, env);
- });
+});
 
 
 module.exports = app;
