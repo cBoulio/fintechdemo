@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "b0579632-8b72-4737-956b-c3d5dc5f96b2",
+		"name": "fintechtodo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getTodoById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/{{version}}/todo/getTodoById",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"{{version}}",
+						"todo",
+						"getTodoById"
+					]
+				},
+				"description": "Get a todo record by id."
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/{{version}}/todo/getAllTodos",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"{{version}}",
+						"todo",
+						"getAllTodos"
+					]
+				},
+				"description": "Get a todo record by id."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Todo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"note\":\"Adding another todo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/{{version}}/todo/createTodo",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"{{version}}",
+						"todo",
+						"createTodo"
+					]
+				},
+				"description": "Get a todo record by id."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Todo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"note\":\"Updating the first record with a new note\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/{{version}}/todo/updateTodo",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"{{version}}",
+						"todo",
+						"updateTodo"
+					]
+				},
+				"description": "Get a todo record by id."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Todo",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/{{version}}/todo/deleteTodo",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"{{version}}",
+						"todo",
+						"deleteTodo"
+					]
+				},
+				"description": "Get a todo record by id."
+			},
+			"response": []
+		},
+		{
+			"name": "App Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/health",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"health"
+					]
+				},
+				"description": "Get health make sure apis are working."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

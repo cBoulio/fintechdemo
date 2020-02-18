@@ -2,16 +2,10 @@ const express = require('express');
 const router = express.Router();
 const todoController = require('../controllers/todo.controller');
 
-
-
-
-// BASIC CRUD
-router.post('/todo', todoController.createTodo);   // C
-router.get('/todo', todoController.getTodo);       // R
-router.put('/todo', todoController.updateTodo);    // U
-router.delete('/todo', todoController.deleteTodo); // D
-
-
-
+router.get('/getTodoById', todoController.getTodoById);   
+router.get('/getAllTodos', todoController.getAllTodos); 
+router.post('/createTodo', todoController.createTodo); 
+router.put('/updateTodo', todoController.updateTodo); 
+router.delete('/deleteTodo', todoController.updateTodo); 
 
 module.exports = router;
